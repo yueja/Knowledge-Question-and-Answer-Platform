@@ -20,7 +20,7 @@ func NewAskAndAnswerQuestionClientHandle(c AskAndAnswerQuestion.GreeterClient) *
 	return &AskAndAnswerQuestionClientHandle{c}
 }
 
-func Client(address string) AskAndAnswerQuestion.GreeterClient {
+func HttpServer(address string) AskAndAnswerQuestion.GreeterClient {
 	conn, err := grpc.Dial("localhost"+address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("did not connect: %v", err)
@@ -30,7 +30,7 @@ func Client(address string) AskAndAnswerQuestion.GreeterClient {
 }
 
 //提出问题
-func (As *AskAndAnswerQuestionClientHandle) AskQuestionClient(w http.ResponseWriter, r *http.Request) {
+func (As *AskAndAnswerQuestionClientHandle) AskQuestionServer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	num := r.Form["Num"][0]
 	question := r.Form["Question"][0]
@@ -48,7 +48,7 @@ func (As *AskAndAnswerQuestionClientHandle) AskQuestionClient(w http.ResponseWri
 }
 
 //浏览问题列表
-func (As *AskAndAnswerQuestionClientHandle) BrowseQuestionClient(w http.ResponseWriter, r *http.Request) {
+func (As *AskAndAnswerQuestionClientHandle) BrowseQuestionServer(w http.ResponseWriter, r *http.Request) {
 	r_1, err := As.c.BrowseQuestion(context.Background(), &AskAndAnswerQuestion.BrowseQuestionRequest{})
 	if err != nil {
 		//log.Fatal("could not greet: %v", err)
@@ -62,7 +62,7 @@ func (As *AskAndAnswerQuestionClientHandle) BrowseQuestionClient(w http.Response
 }
 
 //回答某问题
-func (As *AskAndAnswerQuestionClientHandle) AnswerQuestionClient(w http.ResponseWriter, r *http.Request) {
+func (As *AskAndAnswerQuestionClientHandle) AnswerQuestionServer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	question := r.Form["Question"][0]
 	answer := r.Form["Answer"][0]
@@ -81,7 +81,7 @@ func (As *AskAndAnswerQuestionClientHandle) AnswerQuestionClient(w http.Response
 	render.JSON(w, r, s)
 }
 
-func (As *AskAndAnswerQuestionClientHandle) DetailedListClient(w http.ResponseWriter, r *http.Request) {
+func (As *AskAndAnswerQuestionClientHandle) DetailedListServer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	question := r.Form["Question"][0]
 

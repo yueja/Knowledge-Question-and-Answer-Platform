@@ -20,7 +20,7 @@ func NewRegiAndLogClientHandle(c RegiAndLog.GreeterClient) *RegiAndLogClientHand
 	return &RegiAndLogClientHandle{c}
 }
 
-func Client(address string) RegiAndLog.GreeterClient {
+func HttpServer(address string) RegiAndLog.GreeterClient {
 	conn, err := grpc.Dial("localhost"+address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("did not connect: %v", err)
@@ -30,7 +30,7 @@ func Client(address string) RegiAndLog.GreeterClient {
 }
 
 //写一个客户端
-func (Re *RegiAndLogClientHandle) RegisterClient(w http.ResponseWriter, r *http.Request) {
+func (Re *RegiAndLogClientHandle) RegisterServer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	num := r.Form["Num"][0]
 	password := r.Form["Password"][0]
@@ -47,7 +47,7 @@ func (Re *RegiAndLogClientHandle) RegisterClient(w http.ResponseWriter, r *http.
 	render.JSON(w, r, s)
 }
 
-func (Re *RegiAndLogClientHandle) LoginClient(w http.ResponseWriter, r *http.Request) {
+func (Re *RegiAndLogClientHandle) LoginServer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	num := r.Form["Num"][0]
 	password := r.Form["Password"][0]

@@ -19,7 +19,7 @@ type DeleAnsAndQueClientHandle struct {
 func NewDeleAnsAndQueClientHandle(c DeleteAnswerAndQuestion.GreeterClient) *DeleAnsAndQueClientHandle {
 	return &DeleAnsAndQueClientHandle{c}
 }
-func Client(address string) DeleteAnswerAndQuestion.GreeterClient {
+func HttpServer(address string) DeleteAnswerAndQuestion.GreeterClient {
 	conn, err := grpc.Dial("localhost"+address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("did not connect: %v", err)
@@ -29,7 +29,7 @@ func Client(address string) DeleteAnswerAndQuestion.GreeterClient {
 }
 
 //写一个客户端
-func (de *DeleAnsAndQueClientHandle) DeleteAnswerClient(w http.ResponseWriter, r *http.Request) {
+func (de *DeleAnsAndQueClientHandle) DeleteAnswerServer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	question := r.Form["Question"][0]
 	answerer := r.Form["Answerer"][0]
@@ -46,7 +46,7 @@ func (de *DeleAnsAndQueClientHandle) DeleteAnswerClient(w http.ResponseWriter, r
 	render.JSON(w, r, s)
 }
 
-func (de *DeleAnsAndQueClientHandle) DeleteQuestionClient(w http.ResponseWriter, r *http.Request) {
+func (de *DeleAnsAndQueClientHandle) DeleteQuestionServer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	question := r.Form["Question"][0]
 	questioner := r.Form["Questioner"][0]

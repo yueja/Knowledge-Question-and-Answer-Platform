@@ -19,7 +19,7 @@ type PullQuestionClientHandle struct {
 func NewPullQuestionClientHandle(c PullQuestion.GreeterClient) *PullQuestionClientHandle {
 	return &PullQuestionClientHandle{c}
 }
-func Client(address string) PullQuestion.GreeterClient {
+func HttpServer(address string) PullQuestion.GreeterClient {
 	conn, err := grpc.Dial("localhost"+address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("did not connect: %v", err)
@@ -29,7 +29,7 @@ func Client(address string) PullQuestion.GreeterClient {
 }
 
 //写一个客户端
-func (pu *PullQuestionClientHandle) AllMyQuestionClient(w http.ResponseWriter, r *http.Request) {
+func (pu *PullQuestionClientHandle) AllMyQuestionServer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	questioner := r.Form["Questioner"][0]
 
@@ -47,7 +47,7 @@ func (pu *PullQuestionClientHandle) AllMyQuestionClient(w http.ResponseWriter, r
 	render.JSON(w, r, s)
 }
 
-func (pu *PullQuestionClientHandle) AllMyAnswererClient(w http.ResponseWriter, r *http.Request) {
+func (pu *PullQuestionClientHandle) AllMyAnswererServer(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	answerer := r.Form["Answerer"][0]
 
@@ -66,7 +66,7 @@ func (pu *PullQuestionClientHandle) AllMyAnswererClient(w http.ResponseWriter, r
 	render.JSON(w, r, s)
 }
 
-func (pu *PullQuestionClientHandle) HighestRankingClient(w http.ResponseWriter, r *http.Request) {
+func (pu *PullQuestionClientHandle) HighestRankingServer(w http.ResponseWriter, r *http.Request) {
 	r_1, err := pu.c.HighestRanking(context.Background(), &PullQuestion.HighestRankingRequest{})
 	if err != nil {
 		//log.Fatal("could not greet: %v", err)
@@ -83,7 +83,7 @@ func (pu *PullQuestionClientHandle) HighestRankingClient(w http.ResponseWriter, 
 	render.JSON(w, r, s)
 }
 
-func (pu *PullQuestionClientHandle) RedisSortClient(w http.ResponseWriter, r *http.Request) {
+func (pu *PullQuestionClientHandle) RedisSortServer(w http.ResponseWriter, r *http.Request) {
 
 	r_1, err := pu.c.RedisSort(context.Background(), &PullQuestion.RedisSortRequest{})
 	if err != nil {
