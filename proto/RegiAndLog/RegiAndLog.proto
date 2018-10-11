@@ -1,0 +1,38 @@
+﻿syntax = "proto3";
+ 
+option java_package ="io.grpc.examples";
+ 
+package RegiAndLog;
+
+service Greeter {
+  rpc RegisteredUser (RegisteredUserRequest) returns (RegisteredUserReply) {}
+   rpc LoginUser(LoginUserRequest) returns (LoginUserReply) {}
+}
+
+//包含用户名称的请求消息。
+message RegisteredUserRequest {
+  string Num=1;
+  string Password=2;
+}
+
+//包含问候语的响应消息
+message RegisteredUserReply {
+   string Num=1;
+   string Password=2;
+   string Result=3;
+}
+
+//包含用户名称的请求消息。
+message LoginUserRequest {
+  string Num=1;
+  string Password=2;
+}
+
+//包含问候语的响应消息
+message LoginUserReply {
+   string Num=1;
+   string Password=2;
+   string Result=3;
+}
+
+

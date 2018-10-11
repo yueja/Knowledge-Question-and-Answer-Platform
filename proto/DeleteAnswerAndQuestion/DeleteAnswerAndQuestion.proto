@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_package ="io.grpc.examples";
+
+package DeleteAnswerAndQuestion;
+
+service Greeter {
+rpc DeleteAnswer(DeleteAnswerRequest) returns (DeleteAnswerReply) {}
+rpc DeleteQuestion(DeleteQuestionRequest) returns (DeleteQuestionReply) {}
+}
+
+//包含用户名称的请求消息。
+message DeleteAnswerRequest {
+string Question=1;
+string Answerer=2;
+}
+
+//包含问候语的响应消息
+message DeleteAnswerReply {
+string Result=1;
+}
+
+message DeleteQuestionRequest {
+string Question=1;
+string Questioner=2;
+}
+
+//包含问候语的响应消息
+message DeleteQuestionReply{
+string Result=1;
+}
