@@ -20,7 +20,7 @@ func Make_db(db *gorm.DB, re *redis.Client) *server {
 }
 
 //注册
-func (s *server) RegisteredUser(ctx context.Context, in *pb.RegisteredUserRequest) (*pb.RegisteredUserReply, error) {
+func (s *server) RegisteredUser(ctx context.Context,in *pb.RegisteredUserRequest) (*pb.RegisteredUserReply, error) {
 	var Num1, Password1, num string
 	if m, _ := regexp.MatchString("^[0-9]+$", in.Num); !m {
 		return &pb.RegisteredUserReply{Result: "请输入数字号码"}, nil
