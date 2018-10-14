@@ -1,4 +1,4 @@
-package DataConn
+package data_conn
 
 import (
 	"fmt"
@@ -13,14 +13,14 @@ type User struct {
 	Password string `gorm:"not null"`
 }
 
-type Questioninfo struct {
-	Id           int    `gorm:"auto_increment"`
-	Question     string `gorm:"not null"`
-	Questioner   string `gorm:"not null"`
-	Answer_count int    `gorm:"not null"`
+type QuestionInfo struct {
+	Id          int    `gorm:"auto_increment"`
+	Question    string `gorm:"not null"`
+	Questioner  string `gorm:"not null"`
+	AnswerCount int    `gorm:"not null"`
 }
 
-type Answerinfo struct {
+type AnswerInfo struct {
 	Id       int    `gorm:"not null"`
 	Answer   string `gorm:"not null"`
 	Answerer string `gorm:"not null"`
@@ -32,7 +32,7 @@ func DB_Mysql() *gorm.DB {
 		panic("连接数据库失败")
 	}
 	// 自动迁移模式
-	db.AutoMigrate(&User{}, &Questioninfo{}, &Answerinfo{})
+	db.AutoMigrate(&User{}, &QuestionInfo{}, &AnswerInfo{})
 	return db
 }
 

@@ -1,21 +1,20 @@
 package main
 
 import (
+	"flag"
 	"google.golang.org/grpc"
 	"log"
 	"net"
-	"study0/DataConn"
+	"study0/data_conn"
 	pb "study0/proto/AskAndAnswerQuestion"
 	"study0/server/AskAndAnswerQuestion/api"
-	"flag"
-	)
+)
 
 func main() {
-	db := DataConn.DB_Mysql()
-	AskAndAnswerQuestion := api.Make_db(db)
+	db := data_conn.DB_Mysql()
+	askAndAnswerQuestion := api.MakeDb(db)
 
-	//注册
-	port:= flag.String("port", ":1995", "Input your username")
+	port := flag.String("port", ":1995", "AskAndAnswerQuestion")
 	flag.Parse()
 
 	lis, err := net.Listen("tcp", *port)
@@ -23,6 +22,6 @@ func main() {
 		log.Fatal("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.RegisterGreeterServer(s, AskAndAnswerQuestion)
+	pb.RegisterGreeterServer(s, askAndAnswerQuestion)
 	s.Serve(lis)
 }

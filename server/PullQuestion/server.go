@@ -1,22 +1,22 @@
 package main
 
 import (
+	"flag"
 	"google.golang.org/grpc"
 	"log"
 	"net"
-	"study0/DataConn"
+	"study0/data_conn"
 	pb "study0/proto/PullQuestion"
 	"study0/server/PullQuestion/api"
-	"flag"
 )
 
 func main() {
-	db := DataConn.DB_Mysql()
-	re := DataConn.RED()
-	PullQuestion := api.Make_db(db, re)
+	db := data_conn.DB_Mysql()
+	re := data_conn.RED()
+	PullQuestion := api.MakeDb(db, re)
 
 	//注册
-	port:= flag.String("port", ":1997", "Input your username")
+	port := flag.String("port", ":1997", "")
 	flag.Parse()
 	lis, err := net.Listen("tcp", *port)
 	if err != nil {
