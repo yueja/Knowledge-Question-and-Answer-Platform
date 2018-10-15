@@ -3,28 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="04dcf652-dff7-439a-8d18-9707aeee29bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataConn/DataConn.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Http_Server/Client/AskAndAnswerQuestion/AskAndAnswerQuestion.go" beforeDir="false" afterPath="$PROJECT_DIR$/Http_Server/Client/AskAndAnswerQuestion/AskAndAnswerQuestion.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Http_Server/Client/DeleAnsAndQue/DeleAnsAndQue.go" beforeDir="false" afterPath="$PROJECT_DIR$/Http_Server/Client/DeleAnsAndQue/DeleAnsAndQue.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Http_Server/http_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/Http_Server/http_server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StructureType/StructureType.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/http_server/Client/PullQuestion/PullQuestion.go" beforeDir="false" afterPath="$PROJECT_DIR$/http_server/Client/PullQuestion/PullQuestion.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/AskAndAnswerQuestion/AskAndAnswerQuestion.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/AskAndAnswerQuestion/AskAndAnswerQuestion.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/DeleteAnswerAndQuestion/DeleteAnswerAndQuestion.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/DeleteAnswerAndQuestion/DeleteAnswerAndQuestion.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/PullQuestion/PullQuestion.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/PullQuestion/PullQuestion.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/RegiAndLog/RegiAndLog.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/RegiAndLog/RegiAndLog.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/AskAndAnswerQuestion/api/API.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/AskAndAnswerQuestion/api/API.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/AskAndAnswerQuestion/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/AskAndAnswerQuestion/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/DeleteAnswerAndQuestion/api/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/DeleteAnswerAndQuestion/api/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/DeleteAnswerAndQuestion/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/DeleteAnswerAndQuestion/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/PullQuestion/api/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/PullQuestion/api/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/PullQuestion/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/PullQuestion/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/RegiAndLog/api/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/RegiAndLog/api/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/RegiAndLog/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/RegiAndLog/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/http_server/Client/AskAndAnswerQuestion/ask_and_answer_question.go" beforeDir="false" afterPath="$PROJECT_DIR$/http_server/Client/AskAndAnswerQuestion/ask_and_answer_question.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/http_server/Client/DeleAnsAndQue/dele_ans_and_que.go" beforeDir="false" afterPath="$PROJECT_DIR$/http_server/Client/DeleAnsAndQue/dele_ans_and_que.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/http_server/Client/PullQuestion/pull_question.go" beforeDir="false" afterPath="$PROJECT_DIR$/http_server/Client/PullQuestion/pull_question.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/http_server/Client/RegiAndLog/regi_and_log.go" beforeDir="false" afterPath="$PROJECT_DIR$/http_server/Client/RegiAndLog/regi_and_log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/PullQuestion/api/API.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/PullQuestion/api/API.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,141 +19,41 @@
     <session id="-435203058">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.0" value="3" />
+          <entry key="project.closed" value="7" />
+          <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="go" value="124" />
+          <entry key="go" value="156" />
           <entry key="proto" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="124" />
+          <entry key="Go" value="156" />
           <entry key="PLAIN_TEXT" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="779" />
+          <entry key="go" value="828" />
           <entry key="proto" value="229" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="779" />
+          <entry key="Go" value="828" />
           <entry key="PLAIN_TEXT" value="229" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/http_server/http_server.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="18" column="36" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="72" />
-              <folding>
-                <element signature="e#14#226#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/AskAndAnswerQuestion/server.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="e#14#174#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/AskAndAnswerQuestion/api/api.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/DeleteAnswerAndQuestion/server.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-              <folding>
-                <element signature="e#14#180#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/DeleteAnswerAndQuestion/api/api.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="976">
-              <caret line="61" column="15" lean-forward="true" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="15" />
-              <folding>
-                <element signature="e#13#141#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/PullQuestion/server.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/PullQuestion/api/api.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="e#13#159#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/RegiAndLog/server.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="18" column="53" lean-forward="true" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-              <folding>
-                <element signature="e#14#154#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/RegiAndLog/api/api.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="GOROOT" path="C:\chengxu\jisuanji\Go" />
   <component name="Git.Settings">
@@ -206,16 +89,19 @@
         <option value="$PROJECT_DIR$/http_server/Client/AskAndAnswerQuestion/AskAndAnswerQuestion.go" />
         <option value="$PROJECT_DIR$/http_server/Client/DeleAnsAndQue/DeleAnsAndQue.go" />
         <option value="$PROJECT_DIR$/http_server/Client/PullQuestion/PullQuestion.go" />
-        <option value="$PROJECT_DIR$/http_server/Client/RegiAndLog/regi_and_log.go" />
         <option value="$PROJECT_DIR$/http_server/http_server.go" />
         <option value="$PROJECT_DIR$/server/AskAndAnswerQuestion/server.go" />
-        <option value="$PROJECT_DIR$/server/AskAndAnswerQuestion/api/api.go" />
         <option value="$PROJECT_DIR$/server/DeleteAnswerAndQuestion/server.go" />
-        <option value="$PROJECT_DIR$/server/DeleteAnswerAndQuestion/api/api.go" />
         <option value="$PROJECT_DIR$/server/RegiAndLog/server.go" />
-        <option value="$PROJECT_DIR$/server/RegiAndLog/api/api.go" />
-        <option value="$PROJECT_DIR$/server/PullQuestion/api/api.go" />
         <option value="$PROJECT_DIR$/server/PullQuestion/server.go" />
+        <option value="$PROJECT_DIR$/http_server/Client/RegiAndLog/regi_and_log.go" />
+        <option value="$PROJECT_DIR$/server/RegiAndLog/api/api.go" />
+        <option value="$PROJECT_DIR$/http_server/Client/AskAndAnswerQuestion/ask_and_answer_question.go" />
+        <option value="$PROJECT_DIR$/server/AskAndAnswerQuestion/api/api.go" />
+        <option value="$PROJECT_DIR$/http_server/Client/DeleAnsAndQue/dele_ans_and_que.go" />
+        <option value="$PROJECT_DIR$/server/DeleteAnswerAndQuestion/api/api.go" />
+        <option value="$PROJECT_DIR$/http_server/Client/PullQuestion/pull_question.go" />
+        <option value="$PROJECT_DIR$/server/PullQuestion/api/api.go" />
       </list>
     </option>
   </component>
@@ -236,6 +122,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,117 +130,10 @@
               <item name="study0" type="b2602c69:ProjectViewProjectNode" />
               <item name="study0" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="data_conn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="http_server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="http_server" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="http_server" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="AskAndAnswerQuestion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="http_server" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="DeleAnsAndQue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="http_server" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="PullQuestion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="http_server" type="462c0819:PsiDirectoryNode" />
-              <item name="Client" type="462c0819:PsiDirectoryNode" />
-              <item name="RegiAndLog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="proto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="AskAndAnswerQuestion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="AskAndAnswerQuestion" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="DeleteAnswerAndQuestion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="DeleteAnswerAndQuestion" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="PullQuestion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="PullQuestion" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="RegiAndLog" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="study0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="study0" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="RegiAndLog" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -362,7 +142,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../xiangmu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
@@ -381,9 +161,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26596606" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27405012" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -395,8 +174,8 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.1879562" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4995958" visible="true" weight="0.20985402" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004042" side_tool="true" weight="0.1879562" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -436,11 +215,7 @@
     <entry file="file://$PROJECT_DIR$/HttpClient/http_client.go" />
     <entry file="file://$PROJECT_DIR$/Client/PullQuestion/PullQuestion.go" />
     <entry file="file://$PROJECT_DIR$/Http_Server/http_client.go" />
-    <entry file="file://$PROJECT_DIR$/StructureType/StructureType.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/StructureType/StructureType.go" />
     <entry file="file://E:/test/src/golang.org/x/net/context/go19.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -448,26 +223,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proto/RegiAndLog/RegiAndLog.pb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/proto/RegiAndLog/RegiAndLog.pb.go" />
     <entry file="file://$PROJECT_DIR$/Test/project_test.go" />
-    <entry file="file://$PROJECT_DIR$/server/regi_and_log/api/api.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/pull_question/api/API.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/delete_answer_and_question/api/API.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/ask_and_answer_question/api/ap.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server/regi_and_log/api/api.go" />
+    <entry file="file://$PROJECT_DIR$/server/pull_question/api/API.go" />
+    <entry file="file://$PROJECT_DIR$/server/delete_answer_and_question/api/API.go" />
+    <entry file="file://$PROJECT_DIR$/server/ask_and_answer_question/api/ap.go" />
     <entry file="file://$PROJECT_DIR$/proto/RegiAndLog/regi_and_log.proto">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="512">
@@ -475,13 +236,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/http_server/Client/RegiAndLog/RegiAndLog.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="37" column="26" lean-forward="true" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/http_server/Client/RegiAndLog/RegiAndLog.go" />
     <entry file="file://C:/chengxu/jisuanji/Go/src/net/http/server.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -503,13 +258,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proto/DeleteAnswerAndQuestion/DeleteAnswerAndQuestion.pb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/proto/DeleteAnswerAndQuestion/DeleteAnswerAndQuestion.pb.go" />
     <entry file="file://$PROJECT_DIR$/proto/DeleteAnswerAndQuestion/delete_answer_and_question.proto">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9">
@@ -524,13 +273,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proto/PullQuestion/PullQuestion.proto">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/proto/PullQuestion/PullQuestion.proto" />
     <entry file="file://$PROJECT_DIR$/proto/PullQuestion/pull_question.proto">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="992">
@@ -566,74 +309,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/http_server/Client/AskAndAnswerQuestion/AskAndAnswerQuestion.go">
+    <entry file="file://$PROJECT_DIR$/http_server/Client/AskAndAnswerQuestion/AskAndAnswerQuestion.go" />
+    <entry file="file://$PROJECT_DIR$/http_server/Client/DeleAnsAndQue/DeleAnsAndQue.go" />
+    <entry file="file://$PROJECT_DIR$/http_server/Client/PullQuestion/PullQuestion.go" />
+    <entry file="file://C:/chengxu/jisuanji/Go/src/syscall/syscall_windows.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="81" column="1" lean-forward="true" selection-start-line="81" selection-start-column="1" selection-end-line="81" selection-end-column="1" />
-          <folding>
-            <element signature="e#46#219#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="130">
+          <caret line="239" column="8" lean-forward="true" selection-start-line="239" selection-start-column="8" selection-end-line="239" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/http_server/Client/DeleAnsAndQue/DeleAnsAndQue.go">
+    <entry file="file://C:/chengxu/jisuanji/Go/src/os/proc.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="56" column="64" lean-forward="true" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+        <state relative-caret-position="206">
+          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/http_server/Client/PullQuestion/PullQuestion.go">
+    <entry file="file://C:/chengxu/jisuanji/Go/src/log/log.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="45" column="47" lean-forward="true" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+        <state relative-caret-position="-366">
+          <caret line="304" column="5" selection-start-line="304" selection-start-column="5" selection-end-line="304" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/http_server/Client/RegiAndLog/regi_and_log.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="272">
+          <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
           <folding>
             <element signature="e#35#198#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/http_server/http_server.go">
+    <entry file="file://$PROJECT_DIR$/server/RegiAndLog/api/api.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="18" column="36" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="72" />
-          <folding>
-            <element signature="e#14#226#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="198">
+          <caret line="34" column="33" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/RegiAndLog/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="18" column="53" lean-forward="true" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        <state>
+          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/AskAndAnswerQuestion/api/api.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
           <folding>
-            <element signature="e#14#154#0" expanded="true" />
+            <element signature="e#13#138#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/RegiAndLog/api/api.go">
+    <entry file="file://$PROJECT_DIR$/server/AskAndAnswerQuestion/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="246">
+          <caret line="24" column="15" lean-forward="true" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/PullQuestion/api/api.go">
+    <entry file="file://$PROJECT_DIR$/http_server/Client/AskAndAnswerQuestion/ask_and_answer_question.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="256">
+          <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
           <folding>
-            <element signature="e#13#159#0" expanded="true" />
+            <element signature="e#46#219#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/http_server/Client/DeleAnsAndQue/dele_ans_and_que.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/DeleteAnswerAndQuestion/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/DeleteAnswerAndQuestion/api/api.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="70" column="33" lean-forward="true" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+          <folding>
+            <element signature="e#13#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/http_server/Client/PullQuestion/pull_question.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
         </state>
       </provider>
     </entry>
@@ -644,40 +422,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/DeleteAnswerAndQuestion/server.go">
+    <entry file="file://$PROJECT_DIR$/server/PullQuestion/api/api.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        <state relative-caret-position="46">
+          <caret line="121" column="41" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
           <folding>
-            <element signature="e#14#180#0" expanded="true" />
+            <element signature="e#13#159#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/DeleteAnswerAndQuestion/api/api.go">
+    <entry file="file://$PROJECT_DIR$/http_server/http_server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="976">
-          <caret line="61" column="15" lean-forward="true" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="15" />
-          <folding>
-            <element signature="e#13#141#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/AskAndAnswerQuestion/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="e#14#174#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/AskAndAnswerQuestion/api/api.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="-593">
+          <caret line="8" column="44" lean-forward="true" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
         </state>
       </provider>
     </entry>

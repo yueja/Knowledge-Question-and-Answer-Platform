@@ -36,12 +36,8 @@ func (Re *RegiAndLogClientHandle) RegisterServer(w http.ResponseWriter, r *http.
 
 	r_1, err := Re.c.RegisteredUser(context.Background(), &regi_and_log.RegisteredUserRequest{Num: num, Password: password})
 	if err != nil {
-		//log.Fatal("could not greet: %v", err)
-		s := structure_type.Things{Result: "could not greet", IsSuccess: false}
-		render.JSON(w, r, s)
-		return
+		log.Fatal("could not greet: %v", err)
 	}
-	//log.Printf("Greeting: %s", r_1.Result)
 	s := structure_type.Things{Result: r_1.Result, IsSuccess: r_1.Message}
 	render.JSON(w, r, s)
 }
@@ -53,12 +49,8 @@ func (Re *RegiAndLogClientHandle) LoginServer(w http.ResponseWriter, r *http.Req
 
 	r_1, err := Re.c.LoginUser(context.Background(), &regi_and_log.LoginUserRequest{Num: num, Password: password})
 	if err != nil {
-		// log.Fatal("could not greet: %v", err)
-		s := structure_type.Things{Result: "could not greet", IsSuccess: false}
-		render.JSON(w, r, s)
-		return
+		log.Fatal("could not greet: %v", err)
 	}
-	//log.Printf("Greeting: %s", r_1.Result)
 	s := structure_type.Things{Result: r_1.Result, IsSuccess: r_1.Message}
 	render.JSON(w, r, s)
 }

@@ -37,12 +37,8 @@ func (As *AskAndAnswerQuestionClientHandle) AskQuestionServer(w http.ResponseWri
 
 	r_1, err := As.c.AskQuestion(context.Background(), &ask_and_answer_question.AskQuestionRequest{Num: num, Question: question})
 	if err != nil {
-		//log.Fatal("could not greet: %v", err)
-		s := structure_type.Things{Result: "could not greet", IsSuccess: false}
-		render.JSON(w, r, s)
-		return
+		log.Fatal("could not greet: %v", err)
 	}
-	//log.Printf("Greeting: %s", r_1.Result)
 	s := structure_type.Things{Result: r_1.Result, IsSuccess: r_1.Message}
 	render.JSON(w, r, s)
 }
@@ -51,12 +47,8 @@ func (As *AskAndAnswerQuestionClientHandle) AskQuestionServer(w http.ResponseWri
 func (As *AskAndAnswerQuestionClientHandle) BrowseQuestionServer(w http.ResponseWriter, r *http.Request) {
 	r_1, err := As.c.BrowseQuestion(context.Background(), &ask_and_answer_question.BrowseQuestionRequest{})
 	if err != nil {
-		//log.Fatal("could not greet: %v", err)
-		s := structure_type.QuestionInfo{Result: "could not greet", IsSuccess: false}
-		render.JSON(w, r, s)
-		return
+		log.Fatal("could not greet: %v", err)
 	}
-	//log.Printf("Greeting: %s", r_1.Question)
 	s := structure_type.QuestionInfo{Question: r_1.Question, Result: r_1.Result, IsSuccess: r_1.Message}
 	render.JSON(w, r, s)
 }
@@ -71,12 +63,8 @@ func (As *AskAndAnswerQuestionClientHandle) AnswerQuestionServer(w http.Response
 	a := &ask_and_answer_question.AnswerQuestionRequest{Question: question, Answer: answer, Answerer: answerer}
 	r_1, err := As.c.AnswerQuestion(context.Background(), a)
 	if err != nil {
-		//log.Fatal("could not greet: %v", err)
-		s := structure_type.Things{Result: "could not greet", IsSuccess: false}
-		render.JSON(w, r, s)
-		return
+		log.Fatal("could not greet: %v", err)
 	}
-	//log.Printf("Greeting: %s", r_1.Result)
 	s := structure_type.Things{Result: r_1.Result, IsSuccess: r_1.Message}
 	render.JSON(w, r, s)
 }
@@ -88,12 +76,8 @@ func (As *AskAndAnswerQuestionClientHandle) DetailedListServer(w http.ResponseWr
 
 	r_1, err := As.c.DetailedList(context.Background(), &ask_and_answer_question.DetailedListRequest{Question: question})
 	if err != nil {
-		//log.Fatal("could not greet: %v", err)
-		s := structure_type.DetailedListReply{Result: "could not greet", IsSuccess: false}
-		render.JSON(w, r, s)
-		return
+		log.Fatal("could not greet: %v", err)
 	}
-	//log.Printf("Greeting: %s", r_1)
 	s := structure_type.DetailedListReply{Result: r_1.Result, IsSuccess: r_1.Message}
 	for i := 0; i < len(r_1.Detailedlist); i++ {
 		s.DetailedList = append(s.DetailedList, structure_type.DetailedList{Question: r_1.Detailedlist[i].Question,

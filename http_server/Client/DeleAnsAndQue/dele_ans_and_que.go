@@ -1,7 +1,5 @@
 package dele_ans_and_que
 
-//client.go
-
 import (
 	"github.com/go-chi/render"
 	"golang.org/x/net/context"
@@ -36,12 +34,8 @@ func (de *DeleAnsAndQueClientHandle) DeleteAnswerServer(w http.ResponseWriter, r
 
 	r_1, err := de.c.DeleteAnswer(context.Background(), &delete_answer_and_question.DeleteAnswerRequest{Question: question, Answerer: answerer})
 	if err != nil {
-		//log.Fatal("could not greet: %v", err)
-		s := structure_type.Things{Result: "could not greet", IsSuccess: false}
-		render.JSON(w, r, s)
-		return
+		log.Fatal("could not greet: %v", err)
 	}
-	//log.Printf("Greeting: %s", r_1.Result)
 	s := structure_type.Things{Result: r_1.Result, IsSuccess: r_1.Message}
 	render.JSON(w, r, s)
 }
@@ -53,12 +47,8 @@ func (de *DeleAnsAndQueClientHandle) DeleteQuestionServer(w http.ResponseWriter,
 
 	r_1, err := de.c.DeleteQuestion(context.Background(), &delete_answer_and_question.DeleteQuestionRequest{Question: question, Questioner: questioner})
 	if err != nil {
-		//log.Fatal("could not greet: %v", err)
-		s := structure_type.Things{Result: "could not greet", IsSuccess: false}
-		render.JSON(w, r, s)
-		return
+		log.Fatal("could not greet: %v", err)
 	}
-	//log.Printf("Greeting: %s", r_1.Result)
 	s := structure_type.Things{Result: r_1.Result, IsSuccess: r_1.Message}
 	render.JSON(w, r, s)
 }

@@ -4,6 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"golang.org/x/net/context"
 	"study0/data_conn"
+	"log"
 	pb1 "study0/proto/AskAndAnswerQuestion"
 )
 
@@ -23,7 +24,7 @@ func (s *server) AskQuestion(ctx context.Context, in *pb1.AskQuestionRequest) (*
 	}
 	err := s.db.Create(&data_conn.QuestionInfo{Questioner: in.Num, Question: in.Question, AnswerCount: 0}).Error
 	if err != nil {
-		return &pb1.AskQuestionReply{Result: "提出问题失败", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 	return &pb1.AskQuestionReply{Result: "提出问题成功", Message: true}, nil
 }
@@ -43,12 +44,12 @@ func (s *server) BrowseQuestion(ctx context.Context, in *pb1.BrowseQuestionReque
 
 	rows, err := s.db.Model(&data_conn.QuestionInfo{}).Select("Question").Rows()
 	if err != nil {
-		return &pb1.BrowseQuestionReply{Result: "查询错误，未查出相应结果", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 	for rows.Next() {
 		err = rows.Scan(&question)
 		if err != nil {
-			return &pb1.BrowseQuestionReply{Result: "出错", Message: false}, nil
+			log.Printf("err: %s",err)
 		}
 		s_1.Response = append(s_1.Response, BrowseQuestionRequest{Question: question})
 	}
@@ -62,26 +63,26 @@ func (s *server) BrowseQuestion(ctx context.Context, in *pb1.BrowseQuestionReque
 func (s *server) AnswerQuestion(ctx context.Context, in *pb1.AnswerQuestionRequest) (*pb1.AnswerQuestionReply, error) {
 	rows, err := s.db.Model(&data_conn.QuestionInfo{}).Where("Question=?", in.Question).Select("Id,Answer_count").Rows()
 	if err != nil {
-		return &pb1.AnswerQuestionReply{Result: "提出问题失败", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 
 	var Id, Answer_count int
 	for rows.Next() {
 		err = rows.Scan(&Id, &Answer_count)
 		if err != nil {
-			return &pb1.AnswerQuestionReply{Result: "出错", Message: false}, nil
+			log.Printf("err: %s",err)
 		}
 	}
 	//判断同一用户是否已回答同一问题
 	rows, err = s.db.Model(&data_conn.AnswerInfo{}).Where(" Answerer=? and Id=?", in.Answerer, Id).Select("Id").Rows()
 	if err != nil {
-		return &pb1.AnswerQuestionReply{Result: "出错", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 	var NUM int
 	for rows.Next() {
 		err = rows.Scan(&NUM)
 		if err != nil {
-			return &pb1.AnswerQuestionReply{Result: "出错", Message: false}, nil
+			log.Printf("err: %s",err)
 		}
 	}
 	if NUM != 0 {
@@ -90,13 +91,13 @@ func (s *server) AnswerQuestion(ctx context.Context, in *pb1.AnswerQuestionReque
 	//根据编号增加答案列表信息
 	err = s.db.Create(&data_conn.AnswerInfo{Id: Id, Answer: in.Answer, Answerer: in.Answerer}).Error
 	if err != nil {
-		return &pb1.AnswerQuestionReply{Result: "回答失败", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 	//答案个数计数
 	Answer_count = Answer_count + 1
 	err = s.db.Model(&data_conn.QuestionInfo{}).Where("Question=?", in.Question).Updates(data_conn.QuestionInfo{AnswerCount: Answer_count}).Error
 	if err != nil {
-		return &pb1.AnswerQuestionReply{Result: "更新失败", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 	return &pb1.AnswerQuestionReply{Result: "回答成功", Message: true}, nil
 }
@@ -108,20 +109,20 @@ func (s *server) DetailedList(ctx context.Context, in *pb1.DetailedListRequest) 
 
 	rows, err := s.db.Model(&data_conn.QuestionInfo{}).Where("Question=?", in.Question).Select("Id,Questioner").Rows()
 	if err != nil {
-		return &pb1.DetailedListReply{Result: "查询出错", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 	for rows.Next() {
 		var id int
 		var questioner string
 		err = rows.Scan(&id, &questioner)
 		if err != nil {
-			return &pb1.DetailedListReply{Result: "查询出错", Message: false}, nil
+			log.Printf("err: %s",err)
 		}
 		rows, err = s.db.Model(&data_conn.AnswerInfo{}).Where("Id=?", id).Select("Answer,Answerer").Rows()
 		for rows.Next() {
 			err = rows.Scan(&tmp.Answer, &tmp.Answerer)
 			if err != nil {
-				return &pb1.DetailedListReply{Result: "查询出错", Message: false}, nil
+				log.Printf("err: %s",err)
 			}
 			tmp.Question = in.Question
 			tmp.Questioner = questioner

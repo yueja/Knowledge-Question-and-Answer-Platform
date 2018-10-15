@@ -7,6 +7,7 @@ import (
 	"regexp"
 	"study0/data_conn"
 	pb "study0/proto/RegiAndLog"
+	"github.com/labstack/gommon/log"
 )
 
 type server struct {
@@ -31,13 +32,13 @@ func (s *server) RegisteredUser(ctx context.Context, in *pb.RegisteredUserReques
 	}
 	rows, err := s.db.Model(&data_conn.User{}).Where(" Num=?", in.Num).Select("Num").Rows()
 	if err != nil {
-		return &pb.RegisteredUserReply{Result: "出错", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 
 	for rows.Next() {
 		err = rows.Scan(&num)
 		if err != nil {
-			return &pb.RegisteredUserReply{Result: "出错", Message: false}, nil
+			log.Printf("err: %s",err)
 		}
 	}
 	if num != "" {
@@ -64,7 +65,7 @@ func (s *server) LoginUser(ctx context.Context, in *pb.LoginUserRequest) (*pb.Lo
 	//取缓存账户
 	result, err := s.re.HMGet("NumPassword", "Num", "Password").Result()
 	if err != nil {
-		return &pb.LoginUserReply{Result: "出错", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 
 	if in.Num == result[0] && in.Password == result[1] {
@@ -73,13 +74,13 @@ func (s *server) LoginUser(ctx context.Context, in *pb.LoginUserRequest) (*pb.Lo
 
 	rows, err := s.db.Model(&data_conn.User{}).Where("Num=?", in.Num).Select("Num,Password").Rows()
 	if err != nil {
-		return &pb.LoginUserReply{Result: "出错", Message: false}, nil
+		log.Printf("err: %s",err)
 	}
 
 	for rows.Next() {
 		err = rows.Scan(&num, &password)
 		if err != nil {
-			return &pb.LoginUserReply{Result: "出错", Message: false}, nil
+			log.Printf("err: %s",err)
 		}
 	}
 	if num == "" {
