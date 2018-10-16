@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"study0/proto/DeleteAnswerAndQuestion"
 	"study0/structure_type"
+	"time"
 )
 
 type DeleAnsAndQueClientHandle struct {
@@ -26,8 +27,19 @@ func HttpServer(address string) delete_answer_and_question.GreeterClient {
 	return c
 }
 
+func WithTime()  {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	select{
+	case <-ctx.Done():
+		log.Printf("Time out")
+	default: break
+	}
+}
+
 //写一个客户端
 func (de *DeleAnsAndQueClientHandle) DeleteAnswerServer(w http.ResponseWriter, r *http.Request) {
+	WithTime()
 	r.ParseForm()
 	question := r.Form["question"][0]
 	answerer := r.Form["answerer"][0]
@@ -41,6 +53,7 @@ func (de *DeleAnsAndQueClientHandle) DeleteAnswerServer(w http.ResponseWriter, r
 }
 
 func (de *DeleAnsAndQueClientHandle) DeleteQuestionServer(w http.ResponseWriter, r *http.Request) {
+	WithTime()
 	r.ParseForm()
 	question := r.Form["question"][0]
 	questioner := r.Form["questioner"][0]

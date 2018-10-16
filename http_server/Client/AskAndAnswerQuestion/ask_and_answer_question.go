@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"study0/proto/AskAndAnswerQuestion"
 	"study0/structure_type"
+	"time"
 )
 
 type AskAndAnswerQuestionClientHandle struct {
@@ -29,8 +30,18 @@ func HttpServer(address string) ask_and_answer_question.GreeterClient {
 	return c
 }
 
+func WithTime()  {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	select{
+	case <-ctx.Done():
+		log.Printf("Time out")
+	default: break
+	}
+}
 //提出问题
 func (As *AskAndAnswerQuestionClientHandle) AskQuestionServer(w http.ResponseWriter, r *http.Request) {
+	WithTime()
 	r.ParseForm()
 	num := r.Form["num"][0]
 	question := r.Form["question"][0]
@@ -45,6 +56,7 @@ func (As *AskAndAnswerQuestionClientHandle) AskQuestionServer(w http.ResponseWri
 
 //浏览问题列表
 func (As *AskAndAnswerQuestionClientHandle) BrowseQuestionServer(w http.ResponseWriter, r *http.Request) {
+	WithTime()
 	r_1, err := As.c.BrowseQuestion(context.Background(), &ask_and_answer_question.BrowseQuestionRequest{})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
@@ -55,6 +67,7 @@ func (As *AskAndAnswerQuestionClientHandle) BrowseQuestionServer(w http.Response
 
 //回答某问题
 func (As *AskAndAnswerQuestionClientHandle) AnswerQuestionServer(w http.ResponseWriter, r *http.Request) {
+	WithTime()
 	r.ParseForm()
 	question := r.Form["question"][0]
 	answer := r.Form["answer"][0]
@@ -71,6 +84,7 @@ func (As *AskAndAnswerQuestionClientHandle) AnswerQuestionServer(w http.Response
 
 //浏览问题详情
 func (As *AskAndAnswerQuestionClientHandle) DetailedListServer(w http.ResponseWriter, r *http.Request) {
+	WithTime()
 	r.ParseForm()
 	question := r.Form["question"][0]
 

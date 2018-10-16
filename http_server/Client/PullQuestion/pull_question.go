@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"study0/proto/PullQuestion"
 	"study0/structure_type"
+	"time"
 )
 
 type PullQuestionClientHandle struct {
@@ -28,7 +29,17 @@ func HttpServer(address string) pull_question.GreeterClient {
 	return c
 }
 
+func WithTime()  {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	select{
+	case <-ctx.Done():
+		log.Printf("Time out")
+	default: break
+	}
+}
 func (pu *PullQuestionClientHandle) AllMyQuestionServer(w http.ResponseWriter, r *http.Request) {
+	WithTime()
 	r.ParseForm()
 	questioner := r.Form["questioner"][0]
 
@@ -45,6 +56,7 @@ func (pu *PullQuestionClientHandle) AllMyQuestionServer(w http.ResponseWriter, r
 }
 
 func (pu *PullQuestionClientHandle) AllMyAnswererServer(w http.ResponseWriter, r *http.Request) {
+	WithTime()
 	r.ParseForm()
 	answerer := r.Form["answerer"][0]
 
@@ -60,6 +72,7 @@ func (pu *PullQuestionClientHandle) AllMyAnswererServer(w http.ResponseWriter, r
 }
 
 func (pu *PullQuestionClientHandle) HighestRankingServer(w http.ResponseWriter, r *http.Request) {
+	WithTime()
 	r_1, err := pu.c.HighestRanking(context.Background(), &pull_question.HighestRankingRequest{})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
@@ -73,7 +86,7 @@ func (pu *PullQuestionClientHandle) HighestRankingServer(w http.ResponseWriter, 
 }
 
 func (pu *PullQuestionClientHandle) RedisSortServer(w http.ResponseWriter, r *http.Request) {
-
+	WithTime()
 	r_1, err := pu.c.RedisSort(context.Background(), &pull_question.RedisSortRequest{})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
