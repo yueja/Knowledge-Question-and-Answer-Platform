@@ -1,20 +1,20 @@
 package structure_type
 
 type Things struct {
-	Result string
-	IsSuccess bool
+	Result  bool
+	Message string
 }
 
 type QuestionInfo struct {
 	Question []string
-	Result string
-	IsSuccess bool
+	Result   bool
+	Message  string
 }
 
 type DetailedListReply struct {
 	DetailedList []DetailedList
-	Result       string
-	IsSuccess bool
+	Result       bool
+	Message      string
 }
 
 type DetailedList struct {
@@ -26,8 +26,8 @@ type DetailedList struct {
 
 type AllMyQuestionReply struct {
 	Question []Questionlist
-	Result   string
-	IsSuccess bool
+	Result   bool
+	Message  string
 }
 
 type Questionlist struct {
@@ -38,9 +38,9 @@ type Questionlist struct {
 }
 
 type AllMyAnswerReply struct {
-	Answer []Answerlist
-	Result string
-	IsSuccess bool
+	Answer  []Answerlist
+	Result  bool
+	Message string
 }
 
 type Answerlist struct {

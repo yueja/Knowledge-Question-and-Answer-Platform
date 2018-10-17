@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option java_package ="io.grpc.examples";
+
+package ask_answer;
+
+service Greeter {
+    rpc AskQuestion(AskQuestionRequest) returns (AskQuestionReply){}
+    rpc BrowseQuestion(BrowseQuestionRequest) returns (BrowseQuestionReply) {}
+    rpc AnswerQuestion(AnswerQuestionRequest) returns (AnswerQuestionReply) {}
+    rpc DetailedList(DetailedListRequest) returns (DetailedListReply) {}
+}
+
+message AskQuestionRequest {
+    string num=1;
+    string question=2;
+}
+
+message AskQuestionReply {
+    bool result =3;
+    string message = 4;
+}
+
+message BrowseQuestionRequest {
+}
+
+message BrowseQuestionReply {
+    repeated string question=1;
+    bool result =2;
+    string message=3;
+}
+
+message AnswerQuestionRequest {
+    string question=1;
+    string answer=2;
+    string answerer=3;
+}
+
+message AnswerQuestionReply {
+    bool result =1;
+    string message=2;
+}
+
+message DetailedListRequest {
+    string question=1;
+}
+
+
+message DetailedListReply {
+    repeated  DetailedList detailedlist=1;
+    bool result =2;
+    string message=3;
+}
+
+message  DetailedList{
+    string question=1;
+    string questioner=2;
+    string answer=3;
+    string answerer=4;
+}

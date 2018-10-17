@@ -1,0 +1,69 @@
+﻿syntax = "proto3";
+
+option java_package ="io.grpc.examples";
+
+package pull;
+
+service Greeter {
+    rpc AllMyQuestion(AllMyQuestionRequest) returns (AllMyQuestionReply) {}
+    rpc AllMyAnswer(AllMyAnswerRequest) returns (AllMyAnswerReply) {}
+    rpc HighestRanking(HighestRankingRequest) returns (HighestRankingReply) {}
+    rpc RedisSort(RedisSortRequest) returns (RedisSortReply) {}
+}
+
+
+message AllMyQuestionRequest {
+    string questioner=1;
+}
+
+
+message AllMyQuestionReply{
+    repeated QuestionList  question=1;
+    bool result=2;
+    string message=3;
+}
+
+message QuestionList{
+    string id=1;
+    string question=2;
+    string questioner=3;
+    string answerCount=4;
+}
+
+
+message AllMyAnswerRequest {
+    string answerer=1;
+}
+
+
+message AllMyAnswerReply{
+    repeated AnswerList  answer=1;
+    bool result=2;
+    string message=3;
+}
+
+message AnswerList{
+    string num=1;
+    string answer=2;
+    string answerer=3;
+}
+
+message HighestRankingRequest{
+}
+
+
+message HighestRankingReply{
+    repeated  QuestionList  question=1;
+    bool result=2;
+    string message=3;
+}
+
+
+message RedisSortRequest {
+}
+
+message RedisSortReply{
+    repeated  QuestionList  question=1;
+    bool result=2;
+    string message=3;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_package ="io.grpc.examples";
+
+package delete;
+
+service Greeter {
+    rpc DeleteAnswer(DeleteAnswerRequest) returns (DeleteAnswerReply) {}
+    rpc DeleteQuestion(DeleteQuestionRequest) returns (DeleteQuestionReply) {}
+}
+
+message DeleteAnswerRequest {
+    string question=1;
+    string answerer=2;
+}
+
+message DeleteAnswerReply {
+    bool result=1;
+    string message=2;
+}
+
+message DeleteQuestionRequest {
+    string question=1;
+    string questioner=2;
+}
+
+message DeleteQuestionReply{
+    bool result=1;
+    string message=2;
+}
