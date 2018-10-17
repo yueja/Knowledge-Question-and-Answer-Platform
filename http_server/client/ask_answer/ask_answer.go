@@ -30,25 +30,16 @@ func HttpServer(address string) ask_answer.GreeterClient {
 	return c
 }
 
-func WithTime() {
+//提出问题
+func (as *AskAnswerClientHandle) AskQuestionServer(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	select {
-	case <-ctx.Done():
-		log.Printf("Time out")
-	default:
-		break
-	}
-}
 
-//提出问题
-func (As *AskAnswerClientHandle) AskQuestionServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
 	r.ParseForm()
 	num := r.Form["num"][0]
 	question := r.Form["question"][0]
 
-	re, err := As.c.AskQuestion(context.Background(), &ask_answer.AskQuestionRequest{Num: num, Question: question})
+	re, err := as.c.AskQuestion(ctx, &ask_answer.AskQuestionRequest{Num: num, Question: question})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -57,9 +48,11 @@ func (As *AskAnswerClientHandle) AskQuestionServer(w http.ResponseWriter, r *htt
 }
 
 //浏览问题列表
-func (As *AskAnswerClientHandle) BrowseQuestionServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
-	re, err := As.c.BrowseQuestion(context.Background(), &ask_answer.BrowseQuestionRequest{})
+func (as *AskAnswerClientHandle) BrowseQuestionServer(w http.ResponseWriter, r *http.Request) {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	re, err := as.c.BrowseQuestion(ctx, &ask_answer.BrowseQuestionRequest{})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -68,15 +61,16 @@ func (As *AskAnswerClientHandle) BrowseQuestionServer(w http.ResponseWriter, r *
 }
 
 //回答某问题
-func (As *AskAnswerClientHandle) AnswerQuestionServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
+func (as *AskAnswerClientHandle) AnswerQuestionServer(w http.ResponseWriter, r *http.Request) {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
 	r.ParseForm()
 	question := r.Form["question"][0]
 	answer := r.Form["answer"][0]
 	answerer := r.Form["answerer"][0]
 
 	a := &ask_answer.AnswerQuestionRequest{Question: question, Answer: answer, Answerer: answerer}
-	re, err := As.c.AnswerQuestion(context.Background(), a)
+	re, err := as.c.AnswerQuestion(ctx, a)
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -85,12 +79,13 @@ func (As *AskAnswerClientHandle) AnswerQuestionServer(w http.ResponseWriter, r *
 }
 
 //浏览问题详情
-func (As *AskAnswerClientHandle) DetailedListServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
+func (as *AskAnswerClientHandle) DetailedListServer(w http.ResponseWriter, r *http.Request) {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
 	r.ParseForm()
 	question := r.Form["question"][0]
 
-	re, err := As.c.DetailedList(context.Background(), &ask_answer.DetailedListRequest{Question: question})
+	re, err := as.c.DetailedList(ctx, &ask_answer.DetailedListRequest{Question: question})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}

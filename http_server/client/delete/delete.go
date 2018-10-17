@@ -27,25 +27,16 @@ func HttpServer(address string) delete.GreeterClient {
 	return c
 }
 
-func WithTime() {
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-	select {
-	case <-ctx.Done():
-		log.Printf("Time out")
-	default:
-		break
-	}
-}
-
 //写一个客户端
 func (de *DeleteClientHandle) DeleteAnswerServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
 	r.ParseForm()
 	question := r.Form["question"][0]
 	answerer := r.Form["answerer"][0]
 
-	re, err := de.c.DeleteAnswer(context.Background(), &delete.DeleteAnswerRequest{Question: question, Answerer: answerer})
+	re, err := de.c.DeleteAnswer(ctx, &delete.DeleteAnswerRequest{Question: question, Answerer: answerer})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -54,12 +45,14 @@ func (de *DeleteClientHandle) DeleteAnswerServer(w http.ResponseWriter, r *http.
 }
 
 func (de *DeleteClientHandle) DeleteQuestionServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
 	r.ParseForm()
 	question := r.Form["question"][0]
 	questioner := r.Form["questioner"][0]
 
-	re, err := de.c.DeleteQuestion(context.Background(), &delete.DeleteQuestionRequest{Question: question, Questioner: questioner})
+	re, err := de.c.DeleteQuestion(ctx, &delete.DeleteQuestionRequest{Question: question, Questioner: questioner})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}

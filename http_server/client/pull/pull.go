@@ -27,22 +27,14 @@ func HttpServer(address string) pull.GreeterClient {
 	return c
 }
 
-func WithTime() {
+func (pu *PullClientHandle) AllMyQuestionServer(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	select {
-	case <-ctx.Done():
-		log.Printf("Time out")
-	default:
-		break
-	}
-}
-func (pu *PullClientHandle) AllMyQuestionServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
+
 	r.ParseForm()
 	questioner := r.Form["questioner"][0]
 
-	re, err := pu.c.AllMyQuestion(context.Background(), &pull.AllMyQuestionRequest{Questioner: questioner})
+	re, err := pu.c.AllMyQuestion(ctx, &pull.AllMyQuestionRequest{Questioner: questioner})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -55,11 +47,12 @@ func (pu *PullClientHandle) AllMyQuestionServer(w http.ResponseWriter, r *http.R
 }
 
 func (pu *PullClientHandle) AllMyAnswererServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
 	r.ParseForm()
 	answerer := r.Form["answerer"][0]
 
-	re, err := pu.c.AllMyAnswer(context.Background(), &pull.AllMyAnswerRequest{Answerer: answerer})
+	re, err := pu.c.AllMyAnswer(ctx, &pull.AllMyAnswerRequest{Answerer: answerer})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -71,8 +64,9 @@ func (pu *PullClientHandle) AllMyAnswererServer(w http.ResponseWriter, r *http.R
 }
 
 func (pu *PullClientHandle) HighestRankingServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
-	r_1, err := pu.c.HighestRanking(context.Background(), &pull.HighestRankingRequest{})
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	r_1, err := pu.c.HighestRanking(ctx, &pull.HighestRankingRequest{})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -85,8 +79,9 @@ func (pu *PullClientHandle) HighestRankingServer(w http.ResponseWriter, r *http.
 }
 
 func (pu *PullClientHandle) RedisSortServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
-	re, err := pu.c.RedisSort(context.Background(), &pull.RedisSortRequest{})
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	re, err := pu.c.RedisSort(ctx, &pull.RedisSortRequest{})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}

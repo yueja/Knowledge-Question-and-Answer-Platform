@@ -30,24 +30,15 @@ func HttpServer(address string) user.GreeterClient {
 	return c
 }
 
-func WithTime() {
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+func (uc *UserClientHandle) RegisterServer(w http.ResponseWriter, r *http.Request) {
+	ctx,cancel := context.WithTimeout(context.Background(),5*time.Second)
 	defer cancel()
-	select {
-	case <-ctx.Done():
-		log.Printf("Time out")
-	default:
-		break
-	}
-}
 
-func (Re *UserClientHandle) RegisterServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
 	r.ParseForm()
 	num := r.Form["num"][0]
 	password := r.Form["password"][0]
 
-	re, err := Re.c.RegisteredUser(context.Background(), &user.RegisteredUserRequest{Num: num, Password: password})
+	re, err := uc.c.RegisteredUser(ctx, &user.RegisteredUserRequest{Num: num, Password: password})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -55,13 +46,15 @@ func (Re *UserClientHandle) RegisterServer(w http.ResponseWriter, r *http.Reques
 	render.JSON(w, r, s)
 }
 
-func (Re *UserClientHandle) LoginServer(w http.ResponseWriter, r *http.Request) {
-	WithTime()
+func (uc *UserClientHandle) LoginServer(w http.ResponseWriter, r *http.Request) {
+	ctx,cancel := context.WithTimeout(context.Background(),5*time.Second)
+	defer cancel()
+
 	r.ParseForm()
 	num := r.Form["num"][0]
 	password := r.Form["password"][0]
 
-	re, err := Re.c.LoginUser(context.Background(), &user.LoginUserRequest{Num: num, Password: password})
+	re, err := uc.c.LoginUser(ctx, &user.LoginUserRequest{Num: num, Password: password})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}

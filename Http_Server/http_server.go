@@ -10,7 +10,7 @@ import (
 	"study0/http_server/client/user"
 )
 
-func main() {
+func main(){
 	mux := http.NewServeMux()
 	address := flag.String("address", ":2018", "http_server")
 	userAddress := flag.String("address1", "localhost:1994", "RegiAndLog")
