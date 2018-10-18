@@ -28,7 +28,7 @@ func HttpServer(address string) delete.GreeterClient {
 }
 
 //写一个客户端
-func (de *DeleteClientHandle) DeleteAnswerServer(w http.ResponseWriter, r *http.Request) {
+func (d *DeleteClientHandle) DeleteAnswerServer(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
@@ -36,7 +36,7 @@ func (de *DeleteClientHandle) DeleteAnswerServer(w http.ResponseWriter, r *http.
 	question := r.Form["question"][0]
 	answerer := r.Form["answerer"][0]
 
-	re, err := de.c.DeleteAnswer(ctx, &delete.DeleteAnswerRequest{Question: question, Answerer: answerer})
+	re, err := d.c.DeleteAnswer(ctx, &delete.DeleteAnswerRequest{Question: question, Answerer: answerer})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -44,7 +44,7 @@ func (de *DeleteClientHandle) DeleteAnswerServer(w http.ResponseWriter, r *http.
 	render.JSON(w, r, s)
 }
 
-func (de *DeleteClientHandle) DeleteQuestionServer(w http.ResponseWriter, r *http.Request) {
+func (d *DeleteClientHandle) DeleteQuestionServer(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
@@ -52,7 +52,7 @@ func (de *DeleteClientHandle) DeleteQuestionServer(w http.ResponseWriter, r *htt
 	question := r.Form["question"][0]
 	questioner := r.Form["questioner"][0]
 
-	re, err := de.c.DeleteQuestion(ctx, &delete.DeleteQuestionRequest{Question: question, Questioner: questioner})
+	re, err := d.c.DeleteQuestion(ctx, &delete.DeleteQuestionRequest{Question: question, Questioner: questioner})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}

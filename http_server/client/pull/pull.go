@@ -27,14 +27,14 @@ func HttpServer(address string) pull.GreeterClient {
 	return c
 }
 
-func (pu *PullClientHandle) AllMyQuestionServer(w http.ResponseWriter, r *http.Request) {
+func (p *PullClientHandle) AllMyQuestionServer(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
 	r.ParseForm()
 	questioner := r.Form["questioner"][0]
 
-	re, err := pu.c.AllMyQuestion(ctx, &pull.AllMyQuestionRequest{Questioner: questioner})
+	re, err := p.c.AllMyQuestion(ctx, &pull.AllMyQuestionRequest{Questioner: questioner})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -46,13 +46,13 @@ func (pu *PullClientHandle) AllMyQuestionServer(w http.ResponseWriter, r *http.R
 	render.JSON(w, r, s)
 }
 
-func (pu *PullClientHandle) AllMyAnswererServer(w http.ResponseWriter, r *http.Request) {
+func (p *PullClientHandle) AllMyAnswererServer(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	r.ParseForm()
 	answerer := r.Form["answerer"][0]
 
-	re, err := pu.c.AllMyAnswer(ctx, &pull.AllMyAnswerRequest{Answerer: answerer})
+	re, err := p.c.AllMyAnswer(ctx, &pull.AllMyAnswerRequest{Answerer: answerer})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -63,10 +63,10 @@ func (pu *PullClientHandle) AllMyAnswererServer(w http.ResponseWriter, r *http.R
 	render.JSON(w, r, s)
 }
 
-func (pu *PullClientHandle) HighestRankingServer(w http.ResponseWriter, r *http.Request) {
+func (p *PullClientHandle) HighestRankingServer(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	r_1, err := pu.c.HighestRanking(ctx, &pull.HighestRankingRequest{})
+	r_1, err := p.c.HighestRanking(ctx, &pull.HighestRankingRequest{})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
@@ -78,10 +78,10 @@ func (pu *PullClientHandle) HighestRankingServer(w http.ResponseWriter, r *http.
 	render.JSON(w, r, s)
 }
 
-func (pu *PullClientHandle) RedisSortServer(w http.ResponseWriter, r *http.Request) {
+func (p *PullClientHandle) RedisSortServer(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	re, err := pu.c.RedisSort(ctx, &pull.RedisSortRequest{})
+	re, err := p.c.RedisSort(ctx, &pull.RedisSortRequest{})
 	if err != nil {
 		log.Fatal("could not greet: %v", err)
 	}
