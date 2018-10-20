@@ -12,7 +12,7 @@ type server struct {
 	db *gorm.DB
 }
 
-func MakeDb(db *gorm.DB) *server {
+func MakeObject(db *gorm.DB) *server {
 	DB := &server{db}
 	return DB
 }

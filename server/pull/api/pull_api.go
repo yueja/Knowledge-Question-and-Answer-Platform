@@ -14,7 +14,7 @@ type server struct {
 	re *redis.Client
 }
 
-func MakeDb(db *gorm.DB, re *redis.Client) *server {
+func MakeObject(db *gorm.DB, re *redis.Client) *server {
 	DB := &server{db, re}
 	return DB
 }

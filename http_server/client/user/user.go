@@ -21,7 +21,7 @@ func NewUserClientHandle(c user.GreeterClient) *UserClientHandle {
 	return &UserClientHandle{c}
 }
 
-func HttpServer(address string) user.GreeterClient {
+func MakeStub(address string) user.GreeterClient {
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("did not connect: %v", err)

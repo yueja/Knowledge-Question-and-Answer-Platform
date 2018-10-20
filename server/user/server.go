@@ -13,7 +13,7 @@ import (
 func main() {
 	db := data_conn.MakeMySqlDB()
 	re := data_conn.MakeRedis()
-	user := user_api.MakeDb(db, re)
+	user := user_api.MakeObject(db, re)
 
 	//注册
 	addr := flag.String("addr", ":1994", "RegiAndLog")

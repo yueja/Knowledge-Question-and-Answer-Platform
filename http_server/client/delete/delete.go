@@ -18,7 +18,7 @@ type DeleteClientHandle struct {
 func NewDeleteClientHandle(c delete.GreeterClient) *DeleteClientHandle {
 	return &DeleteClientHandle{c}
 }
-func HttpServer(address string) delete.GreeterClient {
+func MakeStub(address string) delete.GreeterClient {
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("did not connect: %v", err)

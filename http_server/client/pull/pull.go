@@ -18,7 +18,7 @@ type PullClientHandle struct {
 func NewPullClientHandle(c pull.GreeterClient) *PullClientHandle {
 	return &PullClientHandle{c}
 }
-func HttpServer(address string) pull.GreeterClient {
+func MakeStub(address string) pull.GreeterClient {
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("did not connect: %v", err)

@@ -12,7 +12,7 @@ type server struct {
 	db *gorm.DB
 }
 
-func MakeDb(db *gorm.DB) *server {
+func MakeObject(db *gorm.DB) *server {
 	DB := &server{db}
 	return DB
 }
@@ -61,41 +61,41 @@ func (s *server) BrowseQuestion(ctx context.Context, in *pb1.BrowseQuestionReque
 
 //回答某问题
 func (s *server) AnswerQuestion(ctx context.Context, in *pb1.AnswerQuestionRequest) (*pb1.AnswerQuestionReply, error) {
-	rows, err := s.db.Model(&data_conn.QuestionInfo{}).Where("Question=?", in.Question).Select("Id,Answer_count").Rows()
+	rows, err := s.db.Model(&data_conn.QuestionInfo{}).Where("Question=?", in.Question).Select("Id,AnswerCount").Rows()
 	if err != nil {
 		log.Printf("err: %s", err)
 	}
 
-	var Id, Answer_count int
+	var id, answerCount int
 	for rows.Next() {
-		err = rows.Scan(&Id, &Answer_count)
+		err = rows.Scan(&id, &answerCount)
 		if err != nil {
 			log.Printf("err: %s", err)
 		}
 	}
 	//判断同一用户是否已回答同一问题
-	rows, err = s.db.Model(&data_conn.AnswerInfo{}).Where(" Answerer=? and Id=?", in.Answerer, Id).Select("Id").Rows()
+	rows, err = s.db.Model(&data_conn.AnswerInfo{}).Where(" Answerer=? and Id=?", in.Answerer, id).Select("Id").Rows()
 	if err != nil {
 		log.Printf("err: %s", err)
 	}
-	var NUM int
+	var num int
 	for rows.Next() {
-		err = rows.Scan(&NUM)
+		err = rows.Scan(&num)
 		if err != nil {
 			log.Printf("err: %s", err)
 		}
 	}
-	if NUM != 0 {
+	if num != 0 {
 		return &pb1.AnswerQuestionReply{Result: false, Message: "该用户已经回答了该问题"}, nil
 	}
 	//根据编号增加答案列表信息
-	err = s.db.Create(&data_conn.AnswerInfo{Id: Id, Answer: in.Answer, Answerer: in.Answerer}).Error
+	err = s.db.Create(&data_conn.AnswerInfo{Id: id, Answer: in.Answer, Answerer: in.Answerer}).Error
 	if err != nil {
 		log.Printf("err: %s", err)
 	}
 	//答案个数计数
-	Answer_count = Answer_count + 1
-	err = s.db.Model(&data_conn.QuestionInfo{}).Where("Question=?", in.Question).Updates(data_conn.QuestionInfo{AnswerCount: Answer_count}).Error
+	answerCount = answerCount + 1
+	err = s.db.Model(&data_conn.QuestionInfo{}).Where("Question=?", in.Question).Updates(data_conn.QuestionInfo{AnswerCount: answerCount}).Error
 	if err != nil {
 		log.Printf("err: %s", err)
 	}

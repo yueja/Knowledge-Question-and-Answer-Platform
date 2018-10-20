@@ -13,16 +13,16 @@ import (
 func main(){
 	mux := http.NewServeMux()
 	address := flag.String("address", ":2018", "http_server")
-	userAddress := flag.String("address1", "localhost:1994", "RegiAndLog")
-	askAnswerAddress := flag.String("address2", "localhost:1995", "AskAndAnswerQuestion")
-	deleteAddress := flag.String("address3", "localhost:1996", "DeleAnsAndQue")
-	pullAddress := flag.String("address4", "localhost:1997", "PullQuestion")
+	userAddress := flag.String("userAddress", "localhost:1994", "RegiAndLog")
+	askAnswerAddress := flag.String("askAnswerAddress", "localhost:1995", "AskAndAnswerQuestion")
+	deleteAddress := flag.String("deleteAddress", "localhost:1996", "DeleAnsAndQue")
+	pullAddress := flag.String("pullAddress", "localhost:1997", "PullQuestion")
 	flag.Parse()
 
-	userClient := user.HttpServer(*userAddress)
-	askAnswerClient := ask_answer.HttpServer(*askAnswerAddress)
-	deleteClient := delete.HttpServer(*deleteAddress)
-	pullClient := pull_question.HttpServer(*pullAddress)
+	userClient := user.MakeStub(*userAddress)
+	askAnswerClient := ask_answer.MakeStub(*askAnswerAddress)
+	deleteClient := delete.MakeStub(*deleteAddress)
+	pullClient := pull_question.MakeStub(*pullAddress)
 
 	userClientHandle := user.NewUserClientHandle(userClient)
 	//注册用户

@@ -21,7 +21,7 @@ func NewAskAnswerClientHandle(c ask_answer.GreeterClient) *AskAnswerClientHandle
 	return &AskAnswerClientHandle{c}
 }
 
-func HttpServer(address string) ask_answer.GreeterClient {
+func MakeStub(address string) ask_answer.GreeterClient {
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatal("did not connect: %v", err)

@@ -6,13 +6,13 @@ import (
 	"log"
 	"net"
 	"study0/data_conn"
-	pb "study0/proto/AskAndAnswerQuestion"
+	pb "study0/proto/ask_answer"
 	"study0/server/ask_answer/api"
 )
 
 func main() {
 	db := data_conn.MakeMySqlDB()
-	askAndAnswerQuestion := ask_answer_api.MakeDb(db)
+	askAndAnswerQuestion := ask_answer_api.MakeObject(db)
 
 	addr := flag.String("addr", ":1995", "AskAndAnswerQuestion")
 	flag.Parse()

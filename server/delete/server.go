@@ -12,7 +12,7 @@ import (
 
 func main() {
 	db := data_conn.MakeMySqlDB()
-	deleteAQ := delete_api.MakeDb(db)
+	deleteAQ := delete_api.MakeObject(db)
 
 	//注册
 	addr := flag.String("addr", ":1996", "DeleAnsAndQue")
